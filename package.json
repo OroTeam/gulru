@@ -1,0 +1,28 @@
+{
+  "name": "gulru",
+  "version": "1.0.0",
+  "description": "A simple and easy LRU library",
+  "keywords": [
+    "lru",
+    "cache",
+    "utility"
+  ],
+  "homepage": "https://github.com/OroTeam/GULRU#readme",
+  "bugs": {
+    "url": "https://github.com/OroTeam/GULRU/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OroTeam/GULRU.git"
+  },
+  "license": "MIT",
+  "author": "OroTeam",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "object-hash": "^3.0.0"
+  }
+}
