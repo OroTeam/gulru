@@ -1,6 +1,6 @@
 {
   "name": "gulru",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple and easy LRU library",
   "keywords": [
     "lru",
@@ -17,12 +17,26 @@
   },
   "license": "MIT",
   "author": "OroTeam",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "types": "tsc"
   },
   "dependencies": {
     "object-hash": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/object-hash": "^3.0.6",
+    "rollup": "^4.49.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
   }
 }

@@ -1,4 +1,4 @@
-const hashObject = require("object-hash")
+import * as objectHash from "object-hash"
 
 /**
  * Creates a synchronous Least Recently Used (LRU) cache wrapper around a function.
@@ -13,12 +13,12 @@ const hashObject = require("object-hash")
  * console.log(square(2)); // 4 (computed)
  * console.log(square(2)); // 4 (cached)
  */
-function LRU(fn, maxSize = 1000) {
+export default function LRU(fn, maxSize = 1000) {
   /** @type {Map<string, ReturnType<T>>} */
   let results = new Map()
 
   return (...args) => {
-    const key = hashObject(args)
+    const key = objectHash(args)
 
     // Move to top (most recently used)
     if (results.has(key)) {
@@ -41,5 +41,3 @@ function LRU(fn, maxSize = 1000) {
     return result
   }
 }
-
-module.exports = LRU

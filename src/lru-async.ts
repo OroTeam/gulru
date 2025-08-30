@@ -1,4 +1,4 @@
-const hashObject = require("object-hash")
+import * as objectHash from "object-hash"
 
 /**
  * Creates an asynchronous Least Recently Used (LRU) cache wrapper around an async function.
@@ -19,12 +19,12 @@ const hashObject = require("object-hash")
  * await fetchData("https://api.example.com/data");
  * await fetchData("https://api.example.com/data");
  */
-function asyncLRU(fn, maxSize = 1000) {
+export default function asyncLRU(fn, maxSize = 1000) {
   /** @type {Map<string, Awaited<ReturnType<T>>>} */
   let results = new Map()
 
   return async (...args) => {
-    const key = hashObject(args)
+    const key = objectHash(args)
 
     // Move to top (most recently used)
     if (results.has(key)) {
@@ -47,5 +47,3 @@ function asyncLRU(fn, maxSize = 1000) {
     return result
   }
 }
-
-module.exports = asyncLRU
